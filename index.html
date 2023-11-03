@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Citas Vanilla</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/rxjs@^7/dist/bundles/rxjs.umd.min.js"></script>
+  </head>
+  <body class="bg-gray-100 h-screen">
+    <div class="container mx-auto mt-20">
+      <header>
+        <h1 class="font-black text-5xl text-center md:w-2/3 mx-auto">
+          Seguimiento pacientes <span class="text-indigo-600">veterinaria</span>
+        </h1>
+      </header>
+      <div class="mt-12 md:flex">
+        <div class="md:w-1/2 lg:w-2/5">
+          <div id="contenedorFormularioPaciente" class="mx-3 md:mx-0">
+            <h2 class="font-black text-3xl text-center">
+              Seguimiento pacientes
+            </h2>
+            <p class="text-xl mt-5 text-center mb-10">
+              Añade pacientes y
+              <span class="text-indigo-600 font-bold">administralos</span>
+            </p>
+            <form
+              id="nuevoPacienteForm"
+              class="bg-white shadow-md rounded-lg py-10 px-5 mb-10"
+            >
+              <div class="mb-5">
+                <label
+                  for="nombrePaciente"
+                  class="block text-gray-700 uppercase font-bold"
+                  >Nombre mascota:</label
+                >
+                <input
+                  id="nombrePaciente"
+                  type="text"
+                  class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+                  placeholder="Nombre de la mascota"
+                />
+              </div>
+              <div class="mb-5">
+                <label
+                  for="propietarioPaciente"
+                  class="block text-gray-700 uppercase font-bold"
+                  >Nombre propietario:</label
+                >
+                <input
+                  id="propietarioPaciente"
+                  type="text"
+                  class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+                  placeholder="Nombre del propietario"
+                />
+              </div>
+              <div class="mb-5">
+                <label
+                  for="emailPaciente"
+                  class="block text-gray-700 uppercase font-bold"
+                  >Email:</label
+                >
+                <input
+                  id="emailPaciente"
+                  type="text"
+                  class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+                  placeholder="Email de contacto del propietario"
+                />
+              </div>
+              <div class="mb-5">
+                <label
+                  for="fechaAltaPaciente"
+                  class="block text-gray-700 uppercase font-bold"
+                  >Fecha alta:</label
+                >
+                <input
+                  id="fechaAltaPaciente"
+                  type="date"
+                  class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+                />
+              </div>
+              <div class="mb-5">
+                <label
+                  for="sintomasPaciente"
+                  class="block text-gray-700 uppercase font-bold"
+                  >Sintomas:</label
+                >
+                <textarea
+                  id="sintomasPaciente"
+                  type="text"
+                  class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+                  placeholder="Describe los sintomas"
+                ></textarea>
+              </div>
+              <input type="hidden" id="idPaciente" value="" />
+              <input
+                id="botonEnviarFormularioPaciente"
+                type="submit"
+                value="Agregar Paciente"
+                class="bg-indigo-600 w-full p-3 text-white uppercase font-bold hover:bg-indigo-700 cursor-pointer transition-colors"
+              />
+            </form>
+          </div>
+        </div>
+        <div class="md:w-1/2 lg:w-3/5">
+          <h2
+            id="listadoPacientesTitulo"
+            class="font-black text-3xl text-center"
+          >
+            No hay pacientes
+          </h2>
+          <p
+            id="listadoPacientesSubtitulo"
+            class="text-xl mt-5 mb-10 text-center"
+          >
+            Comienza agregando
+            <span class="text-indigo-600 font-bold">pacientes</span>
+          </p>
+          <div id="listaPacientes"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./GlobalProvider.js"></script>
+  <script src="./ElementFactory.js"></script>
+  <script src="./Paciente.js"></script>
+  <script src="./UIElementFactory.js"></script>
+  <script src="./RendererService.js"></script>
+  <script src="./PacienteService.js"></script>
+  <script src="./FormularioService.js"></script>
+  <script src="./IdGenerator.js"></script>
+  <script src="./Main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => new Main());
+  </script>
+</html>
