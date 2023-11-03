@@ -11,5 +11,8 @@
     "rxjs"
   ],
   "author": "Gabriel De Los Rios",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.4.0"
+  }
 }
