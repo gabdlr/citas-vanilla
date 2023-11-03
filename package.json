@@ -1,0 +1,15 @@
+{
+  "name": "citas-vanilla",
+  "version": "1.0.0",
+  "description": "A toy app to practice vanilla JS.",
+  "main": "Main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "javascript",
+    "rxjs"
+  ],
+  "author": "Gabriel De Los Rios",
+  "license": "ISC"
+}
