@@ -55,6 +55,7 @@ class UIElementFactory {
   #generarParrafoCampoCardPaciente(texto) {
     const parrafoClasses = ["font-bold", "mb-3", "text-gray-700", "uppercase"];
     const parrafoEl = ElementFactory.crearParrafo(texto, parrafoClasses);
+    parrafoEl.setAttribute("data-testId", "pacientCardField");
     return parrafoEl;
   }
 
@@ -70,8 +71,11 @@ class UIElementFactory {
     const botonera = ElementFactory.crearElemento("div");
     botonera.classList.add(...botoneraClasses);
     const botonEditar = this.#generarBotonEditarPaciente(paciente);
+    botonEditar.setAttribute("data-testId", "pacientCardEditButton");
     botonera.append(botonEditar);
+
     const botonEliminar = this.#generarBotonEliminarPaciente(paciente);
+    botonEliminar.setAttribute("data-testId", "pacientCardDeleteButton");
     botonera.append(botonEliminar);
     return botonera;
   }

@@ -10,14 +10,24 @@
   <body class="bg-gray-100 h-screen">
     <div class="container mx-auto mt-20">
       <header>
-        <h1 class="font-black text-5xl text-center md:w-2/3 mx-auto">
+        <h1
+          class="font-black text-5xl text-center md:w-2/3 mx-auto"
+          data-testId="appHeader"
+        >
           Seguimiento pacientes <span class="text-indigo-600">veterinaria</span>
         </h1>
       </header>
       <div class="mt-12 md:flex">
         <div class="md:w-1/2 lg:w-2/5">
-          <div id="contenedorFormularioPaciente" class="mx-3 md:mx-0">
-            <h2 class="font-black text-3xl text-center">
+          <div
+            class="mx-3 md:mx-0"
+            data-testId="pacientFormContainer"
+            id="contenedorFormularioPaciente"
+          >
+            <h2
+              class="font-black text-3xl text-center"
+              data-testId="formContainerSubtitle"
+            >
               Seguimiento pacientes
             </h2>
             <p class="text-xl mt-5 text-center mb-10">
@@ -25,8 +35,9 @@
               <span class="text-indigo-600 font-bold">administralos</span>
             </p>
             <form
-              id="nuevoPacienteForm"
               class="bg-white shadow-md rounded-lg py-10 px-5 mb-10"
+              data-testId="pacientForm"
+              id="nuevoPacienteForm"
             >
               <div class="mb-5">
                 <label
@@ -35,88 +46,100 @@
                   >Nombre mascota:</label
                 >
                 <input
-                  id="nombrePaciente"
-                  type="text"
                   class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+                  data-testId="pacientNameInput"
+                  id="nombrePaciente"
                   placeholder="Nombre de la mascota"
+                  type="text"
                 />
               </div>
               <div class="mb-5">
                 <label
-                  for="propietarioPaciente"
                   class="block text-gray-700 uppercase font-bold"
+                  for="nombrePaciente"
                   >Nombre propietario:</label
                 >
                 <input
-                  id="propietarioPaciente"
-                  type="text"
                   class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+                  data-testId="pacientOwnerNameInput"
+                  id="propietarioPaciente"
                   placeholder="Nombre del propietario"
+                  type="text"
                 />
               </div>
               <div class="mb-5">
                 <label
-                  for="emailPaciente"
                   class="block text-gray-700 uppercase font-bold"
+                  for="emailPaciente"
                   >Email:</label
                 >
                 <input
-                  id="emailPaciente"
-                  type="text"
                   class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+                  data-testId="pacientEmailInput"
+                  id="emailPaciente"
                   placeholder="Email de contacto del propietario"
+                  type="text"
                 />
               </div>
               <div class="mb-5">
                 <label
-                  for="fechaAltaPaciente"
                   class="block text-gray-700 uppercase font-bold"
+                  for="fechaAltaPaciente"
                   >Fecha alta:</label
                 >
                 <input
+                  class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+                  data-testId="signUpDateInput"
                   id="fechaAltaPaciente"
                   type="date"
-                  class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
                 />
               </div>
               <div class="mb-5">
                 <label
-                  for="sintomasPaciente"
                   class="block text-gray-700 uppercase font-bold"
+                  for="sintomasPaciente"
                   >Sintomas:</label
                 >
                 <textarea
-                  id="sintomasPaciente"
-                  type="text"
                   class="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+                  data-testId="pacientSymptomsInput"
+                  id="sintomasPaciente"
                   placeholder="Describe los sintomas"
+                  type="text"
                 ></textarea>
               </div>
-              <input type="hidden" id="idPaciente" value="" />
               <input
+                data-testId="pacientIdInput"
+                id="idPaciente"
+                type="hidden"
+                value=""
+              />
+              <input
+                class="bg-indigo-600 w-full p-3 text-white uppercase font-bold hover:bg-indigo-700 cursor-pointer transition-colors"
+                data-testId="submitButtonId"
                 id="botonEnviarFormularioPaciente"
                 type="submit"
                 value="Agregar Paciente"
-                class="bg-indigo-600 w-full p-3 text-white uppercase font-bold hover:bg-indigo-700 cursor-pointer transition-colors"
               />
             </form>
           </div>
         </div>
         <div class="md:w-1/2 lg:w-3/5">
           <h2
-            id="listadoPacientesTitulo"
             class="font-black text-3xl text-center"
+            data-testId="pacientListSubtitle"
+            id="listadoPacientesTitulo"
           >
             No hay pacientes
           </h2>
           <p
-            id="listadoPacientesSubtitulo"
             class="text-xl mt-5 mb-10 text-center"
+            id="listadoPacientesSubtitulo"
           >
             Comienza agregando
             <span class="text-indigo-600 font-bold">pacientes</span>
           </p>
-          <div id="listaPacientes"></div>
+          <div data-testId="pacientList" id="listaPacientes"></div>
         </div>
       </div>
     </div>
