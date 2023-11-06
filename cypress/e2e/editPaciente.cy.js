@@ -5,6 +5,8 @@ describe("check edit pacient behavior", () => {
   const pacientEmail = "email@email.com";
   const pacientSignUpDate = "2023-11-04";
   const pacientSymptoms = "Pacient symptoms";
+  const errorText = "todos los campos son obligatorios";
+
   before(() => {
     cy.visit("/");
     cy.get(globals.form.pacientNameInput).type(pacientName);
@@ -56,7 +58,7 @@ describe("check edit pacient behavior", () => {
     cy.get(globals.formContainer.formContainer)
       .children()
       .first()
-      .contains("todos los campos son obligatorios");
+      .contains(errorText);
   });
 
   it("should dismiss error if pacient in edit is deleted", () => {
@@ -64,6 +66,6 @@ describe("check edit pacient behavior", () => {
     cy.get(globals.form.form)
       .children()
       .first()
-      .should("not.contain", "todos los campos son obligatorios");
+      .should("not.contain", errorText);
   });
 });

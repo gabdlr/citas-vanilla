@@ -66,6 +66,7 @@ describe("check add patient behavior", () => {
   });
 
   it("should show error if form is not valid, remove it after valid submission", () => {
+    const errorText = "todos los campos son obligatorios";
     cy.get(globals.form.pacientNameInput).type(nombrePaciente);
     cy.get(globals.form.pacientOwnerInput).type(propietarioPaciente);
     cy.get(globals.form.pacientEmailInput).type(emailPaciente);
@@ -74,13 +75,13 @@ describe("check add patient behavior", () => {
     cy.get(globals.formContainer.formContainer)
       .children()
       .first()
-      .contains("todos los campos son obligatorios");
+      .contains(errorText);
     cy.get(globals.form.pacientSymptomsInput).type(sintomasPaciente);
     cy.get(globals.form.submitButtonId).click();
     cy.get(globals.form.form)
       .children()
       .first()
-      .should("not.contain", "todos los campos son obligatorios");
+      .should("not.contain", errorText);
   });
 
   it("should reset form inputs after submission", () => {
