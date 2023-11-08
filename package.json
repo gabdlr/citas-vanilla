@@ -15,6 +15,7 @@
   "author": "Gabriel De Los Rios",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^13.4.0"
+    "cypress": "^13.4.0",
+    "typescript": "^5.2.2"
   }
 }
