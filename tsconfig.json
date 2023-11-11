@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
+    "outFile": "./dist/Main.js",
     "outDir": "./dist",
     "allowJs": false,
-    "target": "es5"
+    "target": "ES2022",
+    "strict": true
   },
   "include": ["./src/**/*"]
 }
