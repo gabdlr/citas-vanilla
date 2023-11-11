@@ -1,14 +1,16 @@
-class UIElementFactory {
-  #_rendererService;
-  constructor(rendererService) {
+import { ElementFactory } from "./ElementFactory";
+
+export class UIElementFactory {
+  #_rendererService?: RendererService;
+  constructor(rendererService: RendererService) {
     this.rendererService = rendererService;
   }
 
-  set rendererService(rendererService) {
+  set rendererService(rendererService: RendererService) {
     this.#_rendererService = rendererService;
   }
 
-  generarCardPaciente(paciente) {
+  generarCardPaciente(paciente: Paciente) {
     const cardClasses = [
       "m-3",
       "bg-white",
@@ -40,7 +42,7 @@ class UIElementFactory {
     return cardPaciente;
   }
 
-  #generarCampoCardPaciente(textoDescriptor, textoDescripcion) {
+  #generarCampoCardPaciente(textoDescriptor: string, textoDescripcion: string) {
     const spanClasses = ["font-normal", "normal-case"];
     const parrafoCampoCardPaciente =
       this.#generarParrafoCampoCardPaciente(textoDescriptor);
@@ -52,21 +54,21 @@ class UIElementFactory {
     return parrafoCampoCardPaciente;
   }
 
-  #generarParrafoCampoCardPaciente(texto) {
+  #generarParrafoCampoCardPaciente(texto: string) {
     const parrafoClasses = ["font-bold", "mb-3", "text-gray-700", "uppercase"];
     const parrafoEl = ElementFactory.crearParrafo(texto, parrafoClasses);
     parrafoEl.setAttribute("data-testId", "pacientCardField");
     return parrafoEl;
   }
 
-  generarSpanSubtituloListadoPaciente(texto) {
+  generarSpanSubtituloListadoPaciente(texto: string) {
     const spanClasses = ["text-indigo-600", "font-bold"];
     const spanEl = ElementFactory.crearSpan(texto, spanClasses);
     spanEl.classList.add(...spanClasses);
     return spanEl;
   }
 
-  #generarBotoneraCardPaciente(paciente) {
+  #generarBotoneraCardPaciente(paciente: Paciente) {
     const botoneraClasses = ["flex", "justify-between"];
     const botonera = ElementFactory.crearElemento("div");
     botonera.classList.add(...botoneraClasses);
@@ -80,7 +82,7 @@ class UIElementFactory {
     return botonera;
   }
 
-  #generarBotonEditarPaciente(paciente) {
+  #generarBotonEditarPaciente(paciente: Paciente) {
     const botonEditarClasses = [
       "py-2",
       "px-10",
@@ -109,7 +111,7 @@ class UIElementFactory {
     return botonEditarPaciente;
   }
 
-  #generarBotonEliminarPaciente(paciente) {
+  #generarBotonEliminarPaciente(paciente: Paciente) {
     const botonEliminarClasses = [
       "py-2",
       "px-10",

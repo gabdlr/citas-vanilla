@@ -1,8 +1,16 @@
-class FormularioService {
+import { ElementFactory } from "./ElementFactory";
+import {
+  PacienteFormControls,
+  PacienteTemp,
+  globalContenedorFormularioPaciente,
+  globalNuevoPacienteForm,
+} from "./GlobalProvider";
+
+export class FormularioService {
   static tieneErrores = false;
 
   static obtenerValoresFormularioPaciente() {
-    const valoresFormulario = {
+    const valoresFormulario: PacienteTemp = {
       id: "",
       nombre: "",
       propietario: "",
@@ -10,7 +18,10 @@ class FormularioService {
       fechaAlta: "",
       sintomas: "",
     };
-    const controlesFormulario = globalNuevoPacienteForm.elements;
+
+    const controlesFormulario = <PacienteFormControls>(
+      globalNuevoPacienteForm?.elements
+    );
     if (controlesFormulario.idPaciente.value !== "") {
       valoresFormulario.id = Number(controlesFormulario.idPaciente.value);
     }
@@ -23,8 +34,10 @@ class FormularioService {
     return valoresFormulario;
   }
 
-  static rellenarFormularioPaciente(paciente) {
-    const controlesFormulario = globalNuevoPacienteForm.elements;
+  static rellenarFormularioPaciente(paciente: Paciente) {
+    const controlesFormulario = <PacienteFormControls>(
+      globalNuevoPacienteForm.elements
+    );
     controlesFormulario.idPaciente.value = paciente.pacienteId;
     for (const key in paciente) {
       if (Object.hasOwn(paciente, key)) {
@@ -35,12 +48,15 @@ class FormularioService {
 
   static reiniciarFormulario() {
     globalNuevoPacienteForm.reset();
-    globalNuevoPacienteForm.elements.idPaciente.value = "";
+    (<PacienteFormControls>globalNuevoPacienteForm.elements).idPaciente.value =
+      "";
     FormularioService.limpiarMensajeError();
   }
 
   static formularioEsValido() {
-    const controlesFormulario = globalNuevoPacienteForm.elements;
+    const controlesFormulario = <PacienteFormControls>(
+      globalNuevoPacienteForm.elements
+    );
     const elementosAValidar = [
       controlesFormulario.nombrePaciente.value,
       controlesFormulario.propietarioPaciente.value,
@@ -69,7 +85,7 @@ class FormularioService {
         "todos los campos son obligatorios"
       );
       divEl.append(pEl);
-      globalContenedorFormularioPaciente.prepend(divEl);
+      globalContenedorFormularioPaciente?.prepend(divEl);
       FormularioService.tieneErrores = true;
     }
   }

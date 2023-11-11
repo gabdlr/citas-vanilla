@@ -1,5 +1,5 @@
 class Paciente {
-  id;
+  id?: string;
   nombre;
   propietario;
   email;

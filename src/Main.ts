@@ -1,3 +1,6 @@
+import { FormularioService } from "./FormularioService";
+import { globalNuevoPacienteForm } from "./GlobalProvider";
+
 class Main {
   pacienteService = new PacienteService();
   rendererService = new RendererService();
@@ -25,7 +28,7 @@ class Main {
       });
 
     this.pacienteService.pacienteState$.subscribe({
-      next: (pacientes) => {
+      next: (pacientes: Paciente[]) => {
         this.rendererService.actualizarTextoBotonSubmitFormularioPaciente(
           "Agregar Paciente"
         );
