@@ -1,10 +1,16 @@
 {
   "compilerOptions": {
-    "outFile": "./dist/Main.js",
-    "outDir": "./dist",
+    "outDir": "./dist/",
     "allowJs": false,
-    "target": "ES2022",
-    "strict": true
+    "target": "ES2015",
+    "strict": true,
+    "module": "ES2022",
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "@rxjs/*": ["node_modules/rxjs"]
+    }
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*"],
+  "exclude": ["./node_modules/**"]
 }
