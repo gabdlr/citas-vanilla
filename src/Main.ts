@@ -1,7 +1,10 @@
-import { FormularioService } from "./FormularioService";
+import { filter, fromEvent, switchMap } from "rxjs";
+import { PacienteService } from "./PacienteService";
+import { RendererService } from "./RendererService";
 import { globalNuevoPacienteForm } from "./GlobalProvider";
+import { FormularioService } from "./FormularioService";
 
-class Main {
+export class Main {
   pacienteService = new PacienteService();
   rendererService = new RendererService();
   constructor() {
@@ -17,7 +20,7 @@ class Main {
         switchMap(() => {
           const paciente = FormularioService.obtenerValoresFormularioPaciente();
           if (paciente.id === "") {
-            paciente.id = IdGenerator.generateId();
+            paciente.id = IdGenerator.generateId().toString();
             return this.pacienteService.agregarPacienteAlState(paciente);
           }
           return this.pacienteService.actualizarPacienteEnElState(paciente);

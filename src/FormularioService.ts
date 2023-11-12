@@ -10,7 +10,7 @@ export class FormularioService {
   static tieneErrores = false;
 
   static obtenerValoresFormularioPaciente() {
-    const valoresFormulario: PacienteTemp = {
+    const valoresFormulario: Paciente = {
       id: "",
       nombre: "",
       propietario: "",
@@ -23,7 +23,7 @@ export class FormularioService {
       globalNuevoPacienteForm?.elements
     );
     if (controlesFormulario.idPaciente.value !== "") {
-      valoresFormulario.id = Number(controlesFormulario.idPaciente.value);
+      valoresFormulario.id = controlesFormulario.idPaciente.value;
     }
     valoresFormulario.nombre = controlesFormulario.nombrePaciente.value;
     valoresFormulario.propietario =
@@ -38,9 +38,11 @@ export class FormularioService {
     const controlesFormulario = <PacienteFormControls>(
       globalNuevoPacienteForm.elements
     );
+    //@ts-ignore
     controlesFormulario.idPaciente.value = paciente.pacienteId;
     for (const key in paciente) {
-      if (Object.hasOwn(paciente, key)) {
+      if (Object(paciente).hasOwnProperty(key)) {
+        //@ts-ignore
         controlesFormulario[`${key}Paciente`].value = paciente[key];
       }
     }
@@ -92,9 +94,11 @@ export class FormularioService {
 
   static limpiarMensajeError() {
     if (FormularioService.tieneErrores) {
-      globalContenedorFormularioPaciente.removeChild(
-        globalContenedorFormularioPaciente.firstChild
-      );
+      if (globalContenedorFormularioPaciente?.firstChild) {
+        globalContenedorFormularioPaciente.removeChild(
+          globalContenedorFormularioPaciente.firstChild
+        );
+      }
     }
     FormularioService.tieneErrores = false;
   }

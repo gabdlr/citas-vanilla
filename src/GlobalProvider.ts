@@ -1,16 +1,3 @@
-const Rxjs = window.rxjs;
-const {
-  BehaviorSubject,
-  tap,
-  scan,
-  take,
-  switchMap,
-  of,
-  fromEvent,
-  map,
-  filter,
-} = Rxjs;
-
 export const globalListaPacienteEl: HTMLDivElement | null =
   document.querySelector("#listaPacientes");
 export const globalNuevoPacienteForm = <HTMLFormElement>(
@@ -22,7 +9,7 @@ export const globalListadoPacientesSubtitulo: HTMLHeadingElement | null =
   document.querySelector("#listadoPacientesSubtitulo");
 export const globalBotonEnviarFormularioPaciente: HTMLButtonElement | null =
   document.querySelector("#botonEnviarFormularioPaciente");
-export const globalContenedorFormularioPaciente: HTMLDivElement =
+export const globalContenedorFormularioPaciente: HTMLDivElement | null =
   document.querySelector("#contenedorFormularioPaciente");
 
 export interface PacienteFormControls extends HTMLFormControlsCollection {
