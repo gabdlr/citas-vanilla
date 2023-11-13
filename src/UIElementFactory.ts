@@ -1,4 +1,8 @@
+import { fromEvent, switchMap, take } from "rxjs";
 import { ElementFactory } from "./ElementFactory";
+import { RendererService } from "./RendererService";
+import { PacienteService } from "./PacienteService";
+import { Paciente } from "./Paciente";
 
 export class UIElementFactory {
   #_rendererService?: RendererService;
@@ -101,7 +105,7 @@ export class UIElementFactory {
       .pipe(
         take(1),
         switchMap(() => {
-          this.#_rendererService.actualizarTextoBotonSubmitFormularioPaciente(
+          this.#_rendererService?.actualizarTextoBotonSubmitFormularioPaciente(
             "Editar Paciente"
           );
           return PacienteService.instance.editarPaciente(paciente);

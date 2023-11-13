@@ -3,6 +3,8 @@ import { PacienteService } from "./PacienteService";
 import { RendererService } from "./RendererService";
 import { globalNuevoPacienteForm } from "./GlobalProvider";
 import { FormularioService } from "./FormularioService";
+import { IdGenerator } from "./IdGenerator";
+import { Paciente } from "./Paciente";
 
 export class Main {
   pacienteService = new PacienteService();
@@ -41,3 +43,5 @@ export class Main {
     });
   }
 }
+
+new Main();

@@ -1,6 +1,6 @@
 import { BehaviorSubject, map, of, switchMap, take, tap } from "rxjs";
 import { FormularioService } from "./FormularioService";
-import { PacienteTemp } from "./GlobalProvider";
+import { Paciente } from "./Paciente";
 
 export class PacienteService {
   static instance: PacienteService;

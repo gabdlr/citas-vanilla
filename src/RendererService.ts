@@ -4,6 +4,7 @@ import {
   globalListadoPacientesSubtitulo,
   globalListadoPacientesTitulo,
 } from "./GlobalProvider";
+import { Paciente } from "./Paciente";
 import { UIElementFactory } from "./UIElementFactory";
 
 export class RendererService {

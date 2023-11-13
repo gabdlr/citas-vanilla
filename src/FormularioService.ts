@@ -1,13 +1,22 @@
 import { ElementFactory } from "./ElementFactory";
 import {
   PacienteFormControls,
-  PacienteTemp,
   globalContenedorFormularioPaciente,
   globalNuevoPacienteForm,
 } from "./GlobalProvider";
+import { Paciente } from "./Paciente";
 
 export class FormularioService {
+  static instance: FormularioService;
   static tieneErrores = false;
+
+  constructor() {
+    if (FormularioService.instance) {
+      return FormularioService.instance;
+    } else {
+      FormularioService.instance = this;
+    }
+  }
 
   static obtenerValoresFormularioPaciente() {
     const valoresFormulario: Paciente = {
