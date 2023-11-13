@@ -1,15 +1,15 @@
 {
   "compilerOptions": {
     "outDir": "./dist/",
-    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "module": "es6",
     "target": "ES2015",
-    "strict": true,
-    "module": "ES2022",
-    "moduleResolution": "node",
-    "baseUrl": "./",
-    "paths": {
-      "@rxjs/*": ["node_modules/rxjs"]
-    }
+    "allowJs": false,
+    "moduleResolution": "node"
+  },
+  "paths": {
+    "@rxjs/*": ["node_modules/rxjs"]
   },
   "include": ["./src/**/*"],
   "exclude": ["./node_modules/**"]
