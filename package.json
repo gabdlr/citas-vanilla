@@ -1,12 +1,16 @@
 {
-  "name": "citas-vanilla",
+  "name": "my-webpack-project",
   "version": "1.0.0",
-  "description": "A toy app to practice vanilla JS.",
+  "description": "My webpack project",
   "main": "Main.js",
   "scripts": {
+    "build": "webpack --mode=production --node-env=production",
     "cypress:open": "cypress open CYPRESS_BASE_URL=http://localhost:5500",
     "cypress:run": "cypress run",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch"
   },
   "keywords": [
     "javascript",
@@ -15,8 +19,15 @@
   "author": "Gabriel De Los Rios",
   "license": "ISC",
   "devDependencies": {
+    "@webpack-cli/generators": "^3.0.7",
+    "css-loader": "^6.8.1",
     "cypress": "^13.4.0",
-    "typescript": "^5.2.2"
+    "html-webpack-plugin": "^5.5.3",
+    "style-loader": "^3.3.3",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.2.2",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
   },
   "dependencies": {
     "rxjs": "^7.8.1"
